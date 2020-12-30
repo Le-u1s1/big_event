@@ -45,10 +45,10 @@ function getUserInfo(params) {
     // }
   });
 }
-console.log('1');
+
 //渲染用户头像的函数
 function renderAvatar(user) {
-  // console.log(user);
+  console.log(user);
   // debugger
   //1.获取用户的名称
   var name = user.nickname || user.username;
