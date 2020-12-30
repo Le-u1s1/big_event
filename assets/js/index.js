@@ -32,7 +32,7 @@ function getUserInfo(params) {
       if (res.status !== 0) {
         return layui.layer.msg("获取用户信息失败");
       }
-      console.log(res);
+      // console.log(res);
       //调用renderAvatar渲染用户头像
       renderAvatar(res.data);
     },
@@ -56,12 +56,14 @@ function renderAvatar(user) {
   $("#welcome").html("欢迎&nbsp;&nbsp;" + name);
   //3.按需求渲染用户的头像
   if (user.user_pic !== null) {
+    // debugger
     //3.1.渲染用户图片头像
-    console.log(name);
+    console.log('欢迎樊康乐是'+name);
     $(".layui-nav-img").attr("src", user.user_pic).show();
-    $(".text-avatr").hide();
+    $(".text-avatar").hide();
   } else {
     //3.2 渲染文本头像
+    // debugger
     $(".layui-nav-img").hide();
     var first = name[0].toUpperCase();
     $(".text-avatar").html(first).show();
