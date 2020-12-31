@@ -2,8 +2,8 @@ var form = layui.form;
 $(function () {
   form.verify({
     nickname: function (value) {
-      if (value.length > 8) {
-        return "昵称长度必须在 1 ~ 6 个字符之间！";
+      if (value.length > 10) {
+        return "昵称长度必须在 1 ~ 10 个字符之间！";
       }
     },
   });

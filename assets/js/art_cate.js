@@ -79,3 +79,25 @@ $("body").on("submit", "#form-edit", function (e) {
     },
   });
 });
+//通过代理为删除按钮绑定点击事件
+$('tbody').on('click','.btn-del',function () {
+  console.log('ok');
+  //获得id
+  var id = $(this).attr('data-id');
+  //弹出删除框
+  layer.confirm('确定删除?', {icon: 3, title:'提示'}, function(index){
+    //do something
+    $.ajax({
+      method : 'GET',
+      url : '/my/article/deletecate/'+ id,
+      success : function (res) {
+        if(res.status !== 0){
+          return layer.msg('删除分类失败')
+        }
+        layer.msg('删除分类成功')
+        layer.close(index);
+        initArtCateList()
+      }
+    })
+  });
+})
